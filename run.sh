@@ -250,3 +250,4 @@ if [ $DEBUG -gt 1 ]; then
 else
     hostapd /hostapd.conf & wait ${!}
 fi
+sleep infinity
