@@ -1,6 +1,6 @@
 name: "haap"
 description: "HA access point"
-version: "1.0.3"
+version: "1.0.4"
 slug: "haap"
 arch:
   - aarch64
