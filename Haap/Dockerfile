@@ -3,9 +3,11 @@ FROM $BUILD_FROM
 
 MAINTAINER micmoc95 <mic.morat@gmail.com>
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN apt-get update && \
+    apt-get install -y network-manager dbus && \
+    apt-get clean
 
-COPY run.sh /
-RUN chmod a+x /run.sh
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
 
-CMD [ "/run.sh" ]
+CMD ["/run.sh"]
