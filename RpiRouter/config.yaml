@@ -1,7 +1,7 @@
-name: Raspberry Pi Router
+name: "Raspberry Pi Router"
 description: "Configures the Raspberry Pi 5 to act as a network router between end0 and enu1"
-version: 1.0.0
-slug: rpi-router
+version: "1.0.0"
+slug: "rpi-router"
 arch:
   - aarch64
   - amd64
