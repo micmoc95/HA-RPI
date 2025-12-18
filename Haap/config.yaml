@@ -9,3 +9,9 @@ arch:
   - armhf
   - armv7
   - i386
+startup: services
+host_dbus: true
+privileged: true
+map:
+  - config:rw
+schema: {}
