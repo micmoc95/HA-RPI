@@ -3,9 +3,7 @@ FROM $BUILD_FROM
 
 MAINTAINER micmoc95 <mic.morat@gmail.com>
 
-RUN apt-get update && \
-    apt-get install -y network-manager dbus && \
-    apt-get clean
+RUN apk add --no-cache network-manager
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
