@@ -1,5 +1,5 @@
 name: Raspberry Pi Router
-description: Configures the Raspberry Pi 5 to act as a network router between end0 and enu1
+description: "Configures the Raspberry Pi 5 to act as a network router between end0 and enu1"
 version: 1.0.0
 slug: rpi-router
 arch:
