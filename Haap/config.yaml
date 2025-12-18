@@ -14,4 +14,3 @@ host_dbus: true
 privileged: true
 map:
   - config:rw
-schema: {}
