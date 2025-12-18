@@ -1,6 +1,6 @@
 name: "haap"
 description: "HA access point"
-version: "1.0.7"
+version: "1.0.8"
 slug: "haap"
 init: false
 arch:
