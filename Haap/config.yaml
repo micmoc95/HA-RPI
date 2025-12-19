@@ -11,5 +11,3 @@ arch:
   - i386
 host_dbus: true
 privileged: true
-map:
-  - config:rw
