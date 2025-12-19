@@ -1,6 +1,6 @@
 name: "haap"
 description: "HA access point"
-version: "1.0.9"
+version: "1.0.10"
 slug: "haap"
 init: false
 arch:
@@ -9,3 +9,12 @@ arch:
   - armhf
   - armv7
   - i386
+host_network: true
+host_dbus: true
+full_access: true
+privileged:
+  - NET_ADMIN
+  - SYS_ADMIN
+map:
+  - config:rw
+  - etc:rw
