@@ -22,7 +22,7 @@ def dial():
     try:
         cmd = f"adb shell am start -a android.intent.action.CALL -d tel:{num}"
         result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
-        time.sleep((int)tmout)
+        time.sleep(20)
         cmd = "adb shell input keyevent KEYCODE_ENDCALL"
         result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
         return result.stdout
