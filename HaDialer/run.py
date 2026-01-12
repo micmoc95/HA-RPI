@@ -9,7 +9,7 @@ def ha(url, data=None):
 ha("/core/api/services/hadialer/dial", {
     "description": "Composition d'un numéro de téléphone",
     "fields": {
-        "num": {"description":"Numéro à composer"}
+        "num": {"description":"Numéro à composer"},
         "tmout": {"description":"Durée de l'appel"}
     }
 })
