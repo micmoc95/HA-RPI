@@ -6,5 +6,8 @@ boot: auto
 init: false
 usb: true
 udev: true
+host_network: true
+ports:
+  8124/tcp: 8124
 arch:
   - aarch64
