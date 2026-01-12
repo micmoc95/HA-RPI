@@ -45,7 +45,7 @@ ha("/core/api/services/hadialer/hangup", {
 
 @app.route("/hangup", methods=["POST"])
 def hangup():
-        log.info("Hanging up")
+    log.info("Hanging up")
     try:
         cmd = "adb shell input keyevent KEYCODE_ENDCALL"
         result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
