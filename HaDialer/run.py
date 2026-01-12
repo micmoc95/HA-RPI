@@ -29,7 +29,7 @@ def dial():
     num = data.get("num")
     log.info("Numéro à composer: %s", num)
     try:
-        cmd = "adb shell am start -a android.intent.action.CALL -d tel:" + num
+        cmd = "adb shell am start -a android.intent.action.CALL -d tel:" + f"num"
         result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
         log.info("Résultat : %s", result.stdout.strip())
         return result.stdout
