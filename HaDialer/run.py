@@ -1,25 +1,16 @@
-import os, requests, logging, subprocess
+import os, requests, subprocess
 from flask import Flask, request
 
-SUPERVISOR = "http://supervisor"
-TOKEN = os.environ["SUPERVISOR_TOKEN"]
-
 app = Flask(__name__)
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger("hadialer")
-log.info("Starting ...")
 
 def ha(url, data=None):
-    return requests.post(
-        SUPERVISOR + url,
-        headers={"Authorization": f"Bearer {TOKEN}"},
-        json=data
-    )
+    return requests.post("http://supervisor" + url, headers={"Authorization": f"Bearer {os.environ["SUPERVISOR_TOKEN"]}"}, json=data)
 
 ha("/core/api/services/hadialer/dial", {
     "description": "Composition d'un numéro de téléphone",
     "fields": {
         "num": {"description":"Numéro à composer"}
+        "tmout": {"description":"Durée de l'appel"}
     }
 })
 
@@ -27,29 +18,10 @@ ha("/core/api/services/hadialer/dial", {
 def dial():
     data = request.json or {}
     num = data.get("num")
-    log.info("Numéro à composer: %s", num)
+    tmout = data.get("tmout")
     try:
         cmd = f"adb shell am start -a android.intent.action.CALL -d tel:{num}"
-        result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
-        log.info("Résultat : %s", result.stdout.strip())
-        return result.stdout
-    except subprocess.CalledProcessError as e:
-        log.error("Erreur lors de l'exécution : %s", e.stderr)
-        return e.stderr, 500
-
-ha("/core/api/services/hadialer/hangup", {
-    "description": "Raccroche le téléphone",
-    "fields": {
-    }
-})
-
-@app.route("/hangup", methods=["POST"])
-def hangup():
-    log.info("Hanging up")
-    try:
-        cmd = "adb shell input keyevent KEYCODE_ENDCALL"
-        result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
-        log.info("Résultat : %s", result.stdout.strip())
+        result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True, timeout=30)
         return result.stdout
     except subprocess.CalledProcessError as e:
         log.error("Erreur lors de l'exécution : %s", e.stderr)
