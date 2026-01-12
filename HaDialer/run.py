@@ -22,6 +22,8 @@ def dial():
     try:
         cmd = f"adb shell am start -a android.intent.action.CALL -d tel:{num}"
         result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True, timeout=30)
+        cmd = "adb shell input keyevent KEYCODE_ENDCALL"
+        result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True, timeout=30)
         return result.stdout
     except subprocess.CalledProcessError as e:
         log.error("Erreur lors de l'exécution : %s", e.stderr)
