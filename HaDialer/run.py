@@ -37,4 +37,22 @@ def dial():
         log.error("Erreur lors de l'exécution : %s", e.stderr)
         return e.stderr, 500
 
+ha("/core/api/services/hadialer/hangup", {
+    "description": "Raccroche le téléphone",
+    "fields": {
+    }
+})
+
+@app.route("/hangup", methods=["POST"])
+def hangup():
+        log.info("Hanging up")
+    try:
+        cmd = "adb shell input keyevent KEYCODE_ENDCALL"
+        result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True)
+        log.info("Résultat : %s", result.stdout.strip())
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        log.error("Erreur lors de l'exécution : %s", e.stderr)
+        return e.stderr, 500
+
 app.run(host="0.0.0.0", port=8124)
