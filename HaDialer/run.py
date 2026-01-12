@@ -26,7 +26,6 @@ def dial():
         result = subprocess.run(cmd.split(), capture_output=True, text=True, check=True, timeout=30)
         return result.stdout
     except subprocess.CalledProcessError as e:
-        log.error("Erreur lors de l'exécution : %s", e.stderr)
         return e.stderr, 500
 
 app.run(host="0.0.0.0", port=8124)
