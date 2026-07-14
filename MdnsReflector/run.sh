@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-avahi-daemon -D
+exec /usr/sbin/avahi-daemon
