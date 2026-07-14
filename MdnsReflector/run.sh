@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-exec /usr/sbin/avahi-daemon --debug
+exec /usr/sbin/avahi-daemon --no-chroot --debug
