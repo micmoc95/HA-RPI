@@ -1,13 +1,11 @@
 name: "Home Assistant Android dialer"
-description: "Allows HA to dial a number using adb"
-version: "3.1.0"
-slug: "hadialer"
+description: "Mdns reflector for matter"
+version: "1.0.0"
+slug: "reflector"
 boot: auto
 init: false
 usb: true
 udev: true
 host_network: true
-ports:
-  8124/tcp: 8124
 arch:
   - aarch64
