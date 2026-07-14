@@ -7,4 +7,4 @@ COPY run.sh /run.sh
 
 RUN apk add --no-cache avahi tcpdump bash && chmod +x /run.sh
 
-CMD ["/run.sh"]
+CMD ["bash", /run.sh"]
