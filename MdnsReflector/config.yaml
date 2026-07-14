@@ -1,6 +1,6 @@
 name: "Home Assistant Android dialer"
 description: "Mdns reflector for matter"
-version: "1.0.1"
+version: "1.0.2"
 slug: "reflector"
 boot: auto
 init: false
