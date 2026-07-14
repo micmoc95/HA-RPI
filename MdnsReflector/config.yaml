@@ -7,5 +7,10 @@ init: false
 usb: true
 udev: true
 host_network: true
+
+privileged:
+  - NET_ADMIN
+  - NET_RAW
+
 arch:
   - aarch64
