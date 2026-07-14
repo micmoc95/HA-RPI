@@ -1,5 +1,5 @@
-name: "Home Assistant Android dialer"
-description: "Mdns reflector for matter"
+name: "Mdns reflector for Matter"
+description: "Mdns between wlan0 and enu1"
 version: "1.0.4"
 slug: "reflector"
 boot: auto
