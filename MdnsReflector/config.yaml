@@ -1,6 +1,6 @@
 name: "Mdns reflector for Matter"
 description: "Mdns between wlan0 and enu1"
-version: "1.0.4"
+version: "1.0.5"
 slug: "reflector"
 boot: auto
 init: false
